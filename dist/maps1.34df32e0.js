@@ -714,11 +714,15 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 }
 
 },{}],"gH3Lb":[function(require,module,exports,__globalThis) {
+/// <reference types="@types/google.maps" />
 var _user = require("./User");
+var _company = require("./Company");
 const user = new (0, _user.User)();
+const company = new (0, _company.Company)();
 console.log(user);
+console.log(company);
 
-},{"./User":"6FuE9"}],"6FuE9":[function(require,module,exports,__globalThis) {
+},{"./User":"6FuE9","./Company":"lp8cZ"}],"6FuE9":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "User", ()=>User);
@@ -87582,6 +87586,21 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}]},["6Zwoq","gH3Lb"], "gH3Lb", "parcelRequire57d4", {})
+},{}],"lp8cZ":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "Company", ()=>Company);
+var _faker = require("faker");
+var _fakerDefault = parcelHelpers.interopDefault(_faker);
+class Company {
+    constructor(){
+        this.companyName = (0, _fakerDefault.default).company.companyName(), this.catchPhrase = (0, _fakerDefault.default).company.catchPhrase(), this.location = {
+            lat: parseFloat((0, _fakerDefault.default).address.latitude()),
+            lng: parseFloat((0, _fakerDefault.default).address.longitude())
+        };
+    }
+}
+
+},{"faker":"46STV","@parcel/transformer-js/src/esmodule-helpers.js":"4rCfF"}]},["6Zwoq","gH3Lb"], "gH3Lb", "parcelRequire57d4", {})
 
 //# sourceMappingURL=maps1.34df32e0.js.map
