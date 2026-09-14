@@ -726,6 +726,8 @@ customMap.addCompanyMarker(company); // console.log(user);
  // console.log(company);
 
 },{"./CustomMap":"eQj57","./User":"6FuE9","./Company":"lp8cZ"}],"eQj57":[function(require,module,exports,__globalThis) {
+//Instructions on how to satisfy
+//arguements for addMarker
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "CustomMap", ()=>CustomMap);
@@ -739,21 +741,12 @@ class CustomMap {
             }
         });
     }
-    addUserMarker(user) {
+    addMarker(mappable) {
         new google.maps.Marker({
             map: this.googleMap,
             position: {
-                lat: user.location.lat,
-                lng: user.location.lng
-            }
-        });
-    }
-    addCompanyMarker(company) {
-        new google.maps.Marker({
-            map: this.googleMap,
-            position: {
-                lat: company.location.lat,
-                lng: company.location.lng
+                lat: mappable.location.lat,
+                lng: mappable.location.lng
             }
         });
     }
