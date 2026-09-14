@@ -1,11 +1,11 @@
 //Instructions on how to satisfy
 //arguements for addMarker
-interface Mappable {
+export interface Mappable {
   location: {
     lat: number;
     lng: number;
-    markerContent(): string;
   };
+  markerContent(): string;
 }
 export class CustomMap {
   private googleMap: google.maps.Map;
@@ -33,7 +33,7 @@ export class CustomMap {
     });
     marker.addListener("click", () => {
       const infoWindow = new google.maps.InfoWindow({
-        content: "Hi there",
+        content: mappable.markerContent(),
       });
       infoWindow.open(this.googleMap, marker);
     });

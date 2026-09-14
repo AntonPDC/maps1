@@ -751,7 +751,7 @@ class CustomMap {
         });
         marker.addListener("click", ()=>{
             const infoWindow = new google.maps.InfoWindow({
-                content: "Hi there"
+                content: mappable.markerContent()
             });
             infoWindow.open(this.googleMap, marker);
         });
@@ -87637,6 +87637,14 @@ class Company {
             lat: parseFloat((0, _fakerDefault.default).address.latitude()),
             lng: parseFloat((0, _fakerDefault.default).address.longitude())
         };
+    }
+    markerContent() {
+        return `
+    <div>
+    <h1>Company name: ${this.companyName}</h1>
+    <h3>Catch phrase: ${this.catchPhrase}</h3>
+    </div>
+    `;
     }
 }
 
