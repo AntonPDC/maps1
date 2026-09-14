@@ -720,9 +720,9 @@ var _company = require("./Company");
 var _customMap = require("./CustomMap");
 const user = new (0, _user.User)();
 const customMap = new (0, _customMap.CustomMap)("map");
-customMap.addUserMarker(user);
 const company = new (0, _company.Company)();
-customMap.addCompanyMarker(company); // console.log(user);
+customMap.addMarker(user);
+customMap.addMarker(company); // console.log(user);
  // console.log(company);
 
 },{"./CustomMap":"eQj57","./User":"6FuE9","./Company":"lp8cZ"}],"eQj57":[function(require,module,exports,__globalThis) {
@@ -742,12 +742,18 @@ class CustomMap {
         });
     }
     addMarker(mappable) {
-        new google.maps.Marker({
+        const marker = new google.maps.Marker({
             map: this.googleMap,
             position: {
                 lat: mappable.location.lat,
                 lng: mappable.location.lng
             }
+        });
+        marker.addListener("click", ()=>{
+            const infoWindow = new google.maps.InfoWindow({
+                content: "Hi there"
+            });
+            infoWindow.open(this.googleMap, marker);
         });
     }
 }
@@ -795,6 +801,9 @@ class User {
             lat: parseFloat((0, _fakerDefault.default).address.latitude()),
             lng: parseFloat((0, _fakerDefault.default).address.longitude())
         };
+    }
+    markerContent() {
+        return `User name: ${this.name}`;
     }
 }
 

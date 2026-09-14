@@ -6,8 +6,9 @@ import { CustomMap } from "./CustomMap";
 
 const user = new User();
 const customMap = new CustomMap("map");
-customMap.addUserMarker(user);
 const company = new Company();
-customMap.addCompanyMarker(company);
+customMap.addMarker(user);
+customMap.addMarker(company);
+
 // console.log(user);
 // console.log(company);
